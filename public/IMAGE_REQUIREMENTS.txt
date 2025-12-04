@@ -1,0 +1,132 @@
+IMAGE REQUIREMENTS FOR FARCASTER MINIAPP
+==========================================
+
+You need to create TWO images for this miniapp to work properly with Farcaster.
+
+1. PREVIEW IMAGE (miniapp-preview.png)
+   ----------------------------------
+   Filename: miniapp-preview.png
+   Location: public/miniapp-preview.png
+   
+   Dimensions: 
+   - Aspect Ratio: 3:2 (REQUIRED)
+   - Recommended: 1200 x 800 pixels
+   - Minimum: 600 x 400 pixels
+   - Maximum: 3000 x 2000 pixels
+   
+   File Size: Maximum 10MB
+   Format: PNG, JPG, WebP, or GIF
+   
+   Purpose: This image is displayed when someone shares your miniapp in Farcaster.
+            It should be eye-catching and clearly show what your app does.
+   
+   Design Tips:
+   - Include the app name "BTC Volatility Prediction"
+   - Show a preview of the UI or game mechanics
+   - Use the Base blue color (#0052FF)
+   - Add text like "Predict. Win. Repeat."
+   - Make it visually appealing and professional
+
+
+2. SPLASH SCREEN (splash.png)
+   ----------------------------------
+   Filename: splash.png
+   Location: public/splash.png
+   
+   Dimensions: 200 x 200 pixels (EXACT - square format)
+   File Size: Maximum 1MB
+   Format: PNG preferred
+   
+   Purpose: This is shown while your miniapp is loading.
+   
+   Design Tips:
+   - Simple logo or icon
+   - Bitcoin symbol (₿) with app branding
+   - Solid background color (#0052FF recommended)
+   - Keep it minimal and fast to load
+
+
+DESIGN TOOLS YOU CAN USE:
+-------------------------
+- Canva (free, easy to use): https://canva.com
+- Figma (professional): https://figma.com
+- Photoshop/GIMP (advanced)
+- Any image editor that supports exact pixel dimensions
+
+
+QUICK CANVA GUIDE:
+-----------------
+1. Go to Canva.com
+2. Click "Custom Size"
+3. For preview: Enter 1200 x 800 px
+4. For splash: Enter 200 x 200 px
+5. Design your image
+6. Download as PNG
+7. Save in the public/ folder with the correct filename
+
+
+VERIFYING YOUR IMAGES:
+---------------------
+After creating the images:
+
+1. Check file sizes:
+   - preview: Right-click > Properties > Should be under 10MB
+   - splash: Right-click > Properties > Should be under 1MB
+
+2. Check dimensions:
+   - Open in any image viewer
+   - Verify exact pixel dimensions
+   - Preview must be 3:2 ratio (width = 1.5 × height)
+
+3. Test in app:
+   - Run: npm run dev
+   - Check browser console for image loading errors
+   - Images should load without issues
+
+
+COLOR PALETTE (Base Brand Colors):
+----------------------------------
+Primary Blue: #0052FF
+Dark Blue: #0041CC
+Light Blue: #5B8DEE
+Success Green: #00D395
+Warning Orange: #FFB84D
+Danger Red: #FF4747
+Background Dark: #0f0f0f
+Card Background: #1a1a1a
+Text White: #ffffff
+
+
+EXAMPLE CONTENT IDEAS:
+---------------------
+
+For PREVIEW IMAGE (1200x800):
+- Top half: "⚡ BTC Volatility Game"
+- Middle: Screenshot or mockup of the app UI
+- Bottom: "Predict • Bet • Win on Base"
+- Background: Gradient from #0052FF to #5B8DEE
+
+For SPLASH SCREEN (200x200):
+- Center: Large white ₿ symbol
+- Background: Solid #0052FF
+- Border: Subtle glow effect
+- Keep it simple!
+
+
+NEED HELP?
+---------
+If you're not a designer, you can:
+1. Use AI tools like Midjourney or DALL-E
+2. Hire on Fiverr (search "miniapp banner design")
+3. Use free stock photos from Unsplash/Pexels as backgrounds
+4. Keep it simple - solid colors work great too!
+
+
+IMPORTANT NOTES:
+---------------
+- Without these images, the Farcaster embed will NOT display properly
+- Users won't be able to discover your miniapp easily
+- Take time to make these look professional
+- Test the images by sharing your URL in a Farcaster cast
+
+After creating the images, remove or delete this file (IMAGE_REQUIREMENTS.txt).

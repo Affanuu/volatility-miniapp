@@ -1,0 +1,253 @@
+.current-round {
+  padding: 1rem;
+}
+
+.round-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.round-id {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.timer {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.volatility-tracker {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.tracker-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.tracker-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.tracker-hint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.betting-section {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.betting-section h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.entry-fee {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.bet-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bet-btn {
+  background: var(--bg-input);
+  border: 2px solid var(--border);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.bet-btn.more {
+  border-color: var(--success);
+}
+
+.bet-btn.less {
+  border-color: var(--danger);
+}
+
+.bet-btn.selected {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bet-btn.more.selected {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.bet-btn.less.selected {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.bet-label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.bet-btn.selected .bet-label {
+  color: white;
+}
+
+.bet-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.bet-btn.selected .bet-count {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.confirm-btn {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+}
+
+.confirm-btn:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.prize-pool {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.pool-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.pool-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.pool-split {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.live-bets {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.live-bets h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.bets-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.bet-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg-input);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.bet-address {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.bet-choice {
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.bet-choice.more {
+  background: var(--success);
+  color: white;
+}
+
+.bet-choice.less {
+  background: var(--danger);
+  color: white;
+}
+
+.bet-time {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.no-bets {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.connect-prompt {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.connect-prompt h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.connect-prompt p {
+  color: var(--text-secondary);
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BTC Volatility Prediction - Base MiniApp</title>
+    
+    <!-- Farcaster MiniApp Embed Metadata -->
+    <meta property="fc:miniapp" content='{
+      "version": "next",
+      "imageUrl": "https://yourdomain.com/miniapp-preview.png",
+      "button": {
+        "title": "Play Now",
+        "action": {
+          "type": "launch_frame",
+          "name": "BTC Volatility",
+          "url": "https://yourdomain.com",
+          "splashImageUrl": "https://yourdomain.com/splash.png",
+          "splashBackgroundColor": "#0052FF"
+        }
+      }
+    }' />
+    
+    <!-- Open Graph Metadata (3:2 aspect ratio, min 600x400px) -->
+    <meta property="og:title" content="BTC Volatility Prediction" />
+    <meta property="og:description" content="Predict BTC volatility and win on Base" />
+    <meta property="og:image" content="https://yourdomain.com/miniapp-preview.png" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BTC Volatility Prediction" />
+    <meta name="twitter:description" content="Predict BTC volatility and win on Base" />
+    <meta name="twitter:image" content="https://yourdomain.com/miniapp-preview.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
