@@ -1,20 +1,20 @@
 {
   "version": "next",
   "accountAssociation": {
-    "header": "REPLACE_WITH_YOUR_SIGNED_HEADER",
-    "payload": "REPLACE_WITH_YOUR_PAYLOAD",
-    "signature": "REPLACE_WITH_YOUR_SIGNATURE"
+    "header": "eyJmaWQiOjE0MjEzNzYsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHg5MjlmNzI0YzYxMDdEYzBjRDEzQzgwMDdDODQ2OWNEMTRGMEIwNDAyIn0",
+    "payload": "eyJkb21haW4iOiJ2b2xhdGlsaXR5LW1pbmlhcHAudmVyY2VsLmFwcCJ9",
+    "signature": "ah1SuVFDojK/0RvgVX6g4+1I2hyOLCfEHwz4w8YgC+Mp/NTw8Vh7ZLu/9VZd+DcSfX1uDko23s9Lv85RPP9L1hw="
   },
   "frame": {
     "version": "next",
-    "imageUrl": "https://yourdomain.com/miniapp-preview.png",
+    "imageUrl": "https://volatility-miniapp.vercel.app/miniapp-preview.png",
     "button": {
       "title": "Play Now",
       "action": {
         "type": "launch_frame",
         "name": "BTC Volatility",
-        "url": "https://yourdomain.com",
-        "splashImageUrl": "https://yourdomain.com/splash.png",
+        "url": "https://volatility-miniapp.vercel.app",
+        "splashImageUrl": "https://volatility-miniapp.vercel.app/splash.png",
         "splashBackgroundColor": "#0052FF"
       }
     }
