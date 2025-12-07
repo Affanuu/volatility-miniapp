@@ -86,15 +86,21 @@ function CurrentRound() {
   }, [roundInfo])
 
   const handlePlaceBet = async (prediction: 'MORE' | 'LESS') => {
+    console.log('Attempting to place bet:', prediction);
+    console.log('Round info available:', !!roundInfo);
+    
     if (!roundInfo) return
 
     try {
       const [, , , , , , , bettingOpen] = roundInfo
+      console.log('Betting open status:', bettingOpen);
+      
       if (!bettingOpen) {
         alert('Betting is closed for this round')
         return
       }
 
+      console.log('Sending transaction...');
       await writeContract({
         address: CONTRACT_ADDRESS as `0x${string}`,
         abi: contractABI,
@@ -106,6 +112,7 @@ function CurrentRound() {
       setSelectedPrediction(null)
     } catch (error) {
       console.error('Error placing bet:', error)
+      alert('Error placing bet: ' + (error as Error).message)
     }
   }
 
@@ -125,6 +132,14 @@ function CurrentRound() {
   }
 
   const [roundId, , , , totalPot, moreBets, lessBets, bettingOpen] = roundInfo
+
+  // Debugging - log round info
+  useEffect(() => {
+    if (roundInfo) {
+      console.log('Round Info:', roundInfo);
+      console.log('Betting Open:', bettingOpen);
+    }
+  }, [roundInfo, bettingOpen]);
 
   return (
     <div className="current-round">
@@ -151,7 +166,10 @@ function CurrentRound() {
         <div className="bet-buttons">
           <button
             className={`bet-btn more ${selectedPrediction === 'MORE' ? 'selected' : ''}`}
-            onClick={() => setSelectedPrediction('MORE')}
+            onClick={() => {
+              console.log('MORE button clicked');
+              setSelectedPrediction('MORE');
+            }}
             disabled={!bettingOpen || isPending}
           >
             <div className="bet-label">MORE</div>
@@ -159,7 +177,10 @@ function CurrentRound() {
           </button>
           <button
             className={`bet-btn less ${selectedPrediction === 'LESS' ? 'selected' : ''}`}
-            onClick={() => setSelectedPrediction('LESS')}
+            onClick={() => {
+              console.log('LESS button clicked');
+              setSelectedPrediction('LESS');
+            }}
             disabled={!bettingOpen || isPending}
           >
             <div className="bet-label">LESS</div>
