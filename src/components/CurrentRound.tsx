@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { useAccount, useWriteContract, useReadContract, useWatchContractEvent } from 'wagmi'
+import { useAccount, useWriteContract, useReadContract, useWatchContractEvent, useSwitchChain } from 'wagmi'
 import { parseEther, formatEther } from 'viem'
+import { base } from 'wagmi/chains'
 import { CONTRACT_ADDRESS } from '../config/wagmi'
 import { contractABI } from '../contracts/abi'
 import './CurrentRound.css'
@@ -12,7 +13,8 @@ interface Bet {
 }
 
 function CurrentRound() {
-  const { isConnected } = useAccount()
+  const { isConnected, chain } = useAccount()
+  const { switchChain } = useSwitchChain()
   const { writeContract, isPending } = useWriteContract()
   const [selectedPrediction, setSelectedPrediction] = useState<'MORE' | 'LESS' | null>(null)
   const [currentVolatility, setCurrentVolatility] = useState<number>(0)
@@ -90,6 +92,20 @@ function CurrentRound() {
     console.log('Round info available:', !!roundInfo);
     
     if (!roundInfo) return
+
+    // Check if we're on the correct network (Base)
+    if (chain?.id !== base.id) {
+      try {
+        console.log('Switching to Base network...');
+        await switchChain({ chainId: base.id });
+        // Wait a moment for the switch to complete
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      } catch (error) {
+        console.error('Failed to switch network:', error);
+        alert('Please manually switch to Base network in your wallet');
+        return;
+      }
+    }
 
     try {
       const [, , , , , , , bettingOpen] = roundInfo
