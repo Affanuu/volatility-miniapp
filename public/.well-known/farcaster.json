@@ -5,8 +5,8 @@
     "payload": "eyJkb21haW4iOiJ2b2xhdGlsaXR5LW1pbmlhcHAudmVyY2VsLmFwcCJ9",
     "signature": "ah1SuVFDojK/0RvgVX6g4+1I2hyOLCfEHwz4w8YgC+Mp/NTw8Vh7ZLu/9VZd+DcSfX1uDko23s9Lv85RPP9L1hw="
   },
-  "frame": {
-    "version": "next",
+  "miniapp": {
+    "version": "1",
     "name": "BTC Volatility Prediction",
     "imageUrl": "https://volatility-miniapp.vercel.app/miniapp-preview.png",
     "button": {
