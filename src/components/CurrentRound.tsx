@@ -16,7 +16,7 @@ function CurrentRound() {
   const { isConnected, chain } = useAccount()
   const { switchChain } = useSwitchChain()
   const { writeContract, isPending } = useWriteContract()
-  const [selectedPrediction, setSelectedPrediction] = useState<'MORE' | 'LESS' | null>(null)
+  const [selectedPrediction, setSelectedPrediction] = useState<'HIGH' | 'LOW' | null>(null)
   const [currentVolatility, setCurrentVolatility] = useState<number>(0)
   const [timeRemaining, setTimeRemaining] = useState<string>('')
 
@@ -87,7 +87,7 @@ function CurrentRound() {
     return () => clearInterval(interval)
   }, [roundInfo])
 
-  const handlePlaceBet = async (prediction: 'MORE' | 'LESS') => {
+  const handlePlaceBet = async (prediction: 'HIGH' | 'LOW') => {
     console.log('Attempting to place bet:', prediction);
     console.log('Round info available:', !!roundInfo);
     
@@ -121,7 +121,7 @@ function CurrentRound() {
         address: CONTRACT_ADDRESS as `0x${string}`,
         abi: contractABI,
         functionName: 'placeBet',
-        args: [prediction === 'MORE'],
+        args: [prediction === 'HIGH'],
         value: parseEther('0.000001'),
       })
 
@@ -176,30 +176,30 @@ function CurrentRound() {
 
       {/* Betting Section */}
       <div className="betting-section">
-        <h3>Place Your Bet</h3>
-        <p className="entry-fee">Entry: 0.000001 ETH per bet</p>
+        <h3>Predict BTC Price Movement</h3>
+        <p className="entry-fee">Entry: 0.000001 ETH per prediction</p>
         
         <div className="bet-buttons">
           <button
-            className={`bet-btn more ${selectedPrediction === 'MORE' ? 'selected' : ''}`}
+            className={`bet-btn more ${selectedPrediction === 'HIGH' ? 'selected' : ''}`}
             onClick={() => {
-              console.log('MORE button clicked');
-              setSelectedPrediction('MORE');
+              console.log('HIGH button clicked');
+              setSelectedPrediction('HIGH');
             }}
             disabled={!bettingOpen || isPending}
           >
-            <div className="bet-label">MORE</div>
+            <div className="bet-label">HIGH</div>
             <div className="bet-count">{moreBets.toString()} bets</div>
           </button>
           <button
-            className={`bet-btn less ${selectedPrediction === 'LESS' ? 'selected' : ''}`}
+            className={`bet-btn less ${selectedPrediction === 'LOW' ? 'selected' : ''}`}
             onClick={() => {
-              console.log('LESS button clicked');
-              setSelectedPrediction('LESS');
+              console.log('LOW button clicked');
+              setSelectedPrediction('LOW');
             }}
             disabled={!bettingOpen || isPending}
           >
-            <div className="bet-label">LESS</div>
+            <div className="bet-label">LOW</div>
             <div className="bet-count">{lessBets.toString()} bets</div>
           </button>
         </div>
@@ -235,7 +235,7 @@ function CurrentRound() {
                   {bet.bettor.slice(0, 6)}...{bet.bettor.slice(-4)}
                 </div>
                 <div className={`bet-choice ${bet.predictMoreVolatile ? 'more' : 'less'}`}>
-                  {bet.predictMoreVolatile ? 'MORE' : 'LESS'}
+                  {bet.predictMoreVolatile ? 'HIGH' : 'LOW'}
                 </div>
                 <div className="bet-time">
                   {new Date(Number(bet.timestamp) * 1000).toLocaleTimeString()}

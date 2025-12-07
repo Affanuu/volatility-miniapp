@@ -70,10 +70,12 @@ function App() {
         <ErrorBoundary>
           <div className="app">
             <header className="app-header">
-              <div className="wallet-connect-container">
-                <WalletConnectButton />
+              <div className="app-title-container">
+                <h1 className="app-title">⚡ BTC Volatility</h1>
+                <div className="wallet-connect-container">
+                  <WalletConnectButton />
+                </div>
               </div>
-              <h1 className="app-title">⚡ BTC Volatility</h1>
               <p className="app-subtitle">Predict BTC volatility on Base</p>
             </header>
 
