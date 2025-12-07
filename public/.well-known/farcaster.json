@@ -8,6 +8,8 @@
   "miniapp": {
     "version": "1",
     "name": "BTC Volatility Prediction",
+    "homeUrl": "https://volatility-miniapp.vercel.app",
+    "iconUrl": "https://volatility-miniapp.vercel.app/splash.png",
     "imageUrl": "https://volatility-miniapp.vercel.app/miniapp-preview.png",
     "button": {
       "title": "Play Now",
