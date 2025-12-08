@@ -161,15 +161,6 @@ function CurrentRound() {
 
   const [roundId, , , , totalPot, moreBets, lessBets, bettingOpen] = roundInfo
 
-  // Debugging - log round info
-  useEffect(() => {
-    if (roundInfo) {
-      console.log('Round Info:', roundInfo);
-      const [, , , , , , , bettingOpen] = roundInfo;
-      console.log('Betting Open:', bettingOpen);
-    }
-  }, [roundInfo]);
-
   return (
     <div className="current-round">
       {/* Round Info */}
