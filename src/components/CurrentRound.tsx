@@ -161,6 +161,9 @@ function CurrentRound() {
 
   const [roundId, , , , totalPot, moreBets, lessBets, bettingOpen] = roundInfo
 
+  // Debugging - log button states
+  console.log('Button states:', { bettingOpen, isPending, disabled: !bettingOpen || isPending });
+
   return (
     <div className="current-round">
       {/* Round Info */}
@@ -191,9 +194,11 @@ function CurrentRound() {
               setSelectedPrediction('HIGH');
             }}
             disabled={!bettingOpen || isPending}
+            title={!bettingOpen ? 'Betting is closed for this round' : isPending ? 'Transaction in progress' : 'Predict BTC price will go HIGH'}
           >
             <div className="bet-label">HIGH</div>
             <div className="bet-count">{moreBets.toString()} bets</div>
+            {!bettingOpen && <div className="bet-status">Closed</div>}
           </button>
           <button
             className={`bet-btn less ${selectedPrediction === 'LOW' ? 'selected' : ''}`}
@@ -202,9 +207,11 @@ function CurrentRound() {
               setSelectedPrediction('LOW');
             }}
             disabled={!bettingOpen || isPending}
+            title={!bettingOpen ? 'Betting is closed for this round' : isPending ? 'Transaction in progress' : 'Predict BTC price will go LOW'}
           >
             <div className="bet-label">LOW</div>
             <div className="bet-count">{lessBets.toString()} bets</div>
+            {!bettingOpen && <div className="bet-status">Closed</div>}
           </button>
         </div>
 
