@@ -8,7 +8,7 @@ contract VolatilityPrediction {
     
     address public owner;
     uint256 public entryFee = 0.000001 ether;
-    uint256 public roundDuration = 15 minutes;
+    uint256 public roundDuration = 1 minutes;
     bool public bettingPaused = false;
     
     uint256 public currentRoundId = 0;
