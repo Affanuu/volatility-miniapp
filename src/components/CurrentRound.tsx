@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAccount, useWriteContract, useReadContract, useWatchContractEvent, useSwitchChain } from 'wagmi'
 import { parseEther, formatEther } from 'viem'
 import { base } from 'wagmi/chains'
@@ -65,27 +65,39 @@ function CurrentRound() {
     }
   }, [roundInfo, currentPrice])
 
+  // Ref to store current roundInfo for timer
+  const roundInfoRef = useRef(roundInfo);
+  
+  // Update ref when roundInfo changes
+  useEffect(() => {
+    roundInfoRef.current = roundInfo;
+  }, [roundInfo]);
+
   // Update timer
   useEffect(() => {
-    if (!roundInfo) return
+    if (!roundInfo) return;
 
     const interval = setInterval(() => {
-      const [, , endTime] = roundInfo
-      const now = BigInt(Math.floor(Date.now() / 1000))
-      const remaining = Number(endTime - now)
+      // Use ref to get current roundInfo
+      const currentRoundInfo = roundInfoRef.current;
+      if (!currentRoundInfo) return;
+      
+      const [, , endTime] = currentRoundInfo;
+      const now = BigInt(Math.floor(Date.now() / 1000));
+      const remaining = Number(endTime - now);
 
       if (remaining <= 0) {
-        setTimeRemaining('Round Ended')
-        clearInterval(interval)
+        setTimeRemaining('Round Ended');
+        clearInterval(interval);
       } else {
-        const minutes = Math.floor(remaining / 60)
-        const seconds = remaining % 60
-        setTimeRemaining(`${minutes}:${seconds.toString().padStart(2, '0')}`)
+        const minutes = Math.floor(remaining / 60);
+        const seconds = remaining % 60;
+        setTimeRemaining(`${minutes}:${seconds.toString().padStart(2, '0')}`);
       }
-    }, 1000)
+    }, 1000);
 
-    return () => clearInterval(interval)
-  }, [roundInfo])
+    return () => clearInterval(interval);
+  }, [roundInfo]); // Only recreate interval when roundInfo changes
 
   const handlePlaceBet = async (prediction: 'HIGH' | 'LOW') => {
     console.log('Attempting to place bet:', prediction);
