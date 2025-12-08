@@ -39,6 +39,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  min-width: 120px; /* Ensure minimum width for button */
+  z-index: 10; /* Ensure it's above other elements */
 }
 
 .connect-button, .disconnect-button {
@@ -51,10 +53,14 @@
   cursor: pointer;
   transition: all 0.2s;
   white-space: nowrap;
+  font-weight: 600; /* Make text bolder */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
 }
 
 .connect-button:hover, .disconnect-button:hover {
   background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 .wallet-info {

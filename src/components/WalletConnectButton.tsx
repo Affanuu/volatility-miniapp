@@ -24,8 +24,8 @@ function WalletConnectButton() {
   // If no connectors are available, show a message
   if (!connector) {
     return (
-      <div className="wallet-info" style={{ color: 'white', fontSize: '0.8rem' }}>
-        No wallet found
+      <div className="wallet-info" style={{ color: 'white', fontSize: '0.8rem', backgroundColor: 'rgba(255, 0, 0, 0.3)', padding: '0.4rem 0.8rem', borderRadius: '6px' }}>
+        No wallet found - Install MetaMask
       </div>
     )
   }
