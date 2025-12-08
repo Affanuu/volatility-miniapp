@@ -21,8 +21,17 @@ function WalletConnectButton() {
   // Use the first available connector (typically MetaMask)
   const connector = connectors[0]
 
+  // If no connectors are available, show a message
+  if (!connector) {
+    return (
+      <div className="wallet-info" style={{ color: 'white', fontSize: '0.8rem' }}>
+        No wallet found
+      </div>
+    )
+  }
+
   return (
-    <button className="connect-button" onClick={() => connector && connect({ connector })}>
+    <button className="connect-button" onClick={() => connect({ connector })}>
       Connect Wallet
     </button>
   )
